@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useReducer } from "react";
 
 const ACTION_TYPES = {
-  SET_TIME: "SET_TIME",
-  SET_SECONDS: "SET_SECONDS",
-  SET_SECONDS_INTERVAL: "SET_SECONDS_INTERVAL",
+  SET_TIMER: "SET_TIMER",
 };
 
 let date = new Date();
@@ -15,13 +13,7 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case ACTION_TYPES.SET_TIME: {
-      return action.payload;
-    }
-    case ACTION_TYPES.SET_SECONDS: {
-      const { seconds } = action;
-      // console.log("Barev dzez");
-      // console.log("Log ::: seconds ::: ", seconds);
+    case ACTION_TYPES.SET_TIMER: {
       return action.payload;
     }
     default:
@@ -41,7 +33,7 @@ function Clock() {
       m = dataInterval.getMinutes();
       h = dataInterval.getHours();
       dispatch({
-        type: ACTION_TYPES.SET_SECONDS,
+        type: ACTION_TYPES.SET_TIMER,
         payload: {
           hours: h,
           minutes: m,
